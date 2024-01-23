@@ -61,6 +61,7 @@ export const POST = async (request: Request) => {
   }
 
   const eventType: EventType = evnt?.type!;
+  console.log("🚀 ~ POST ~ eventType:", eventType)
   
 
   // Listen organization creation event
