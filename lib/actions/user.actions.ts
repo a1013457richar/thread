@@ -15,10 +15,10 @@ export async function fetchUser(userId: string) {
 
     return await User.findOne({ id: userId })
     
-    // .populate({
-    //   path: "communities",
-    //   model: Community,
-    // });
+    .populate({
+      path: "communities",
+      model: Community,
+    });
   } catch (error: any) {
     throw new Error(`Failed to fetch user: ${error.message}`);
   }
@@ -75,11 +75,11 @@ export async function fetchUserPosts(userId: object) {
       path: "threads",
       model: Thread,
       populate: [
-        // {
-        //   path: "community",
-        //   model: Community,
-        //   select: "name id image _id", // Select the "name" and "_id" fields from the "Community" model
-        // },
+        {
+          path: "community",
+          model: Community,
+          select: "name id image _id", // Select the "name" and "_id" fields from the "Community" model
+        },
         {
           path: "children",
           model: Thread,

@@ -56,21 +56,23 @@ export const POST = async (request: Request) => {
       heads as IncomingHttpHeaders & WebhookRequiredHeaders
     ) as Event;
   } catch (err) {
+    console.log("Failed to verify webhook:", err);
     return NextResponse.json({ message: err }, { status: 400 });
   }
 
   const eventType: EventType = evnt?.type!;
+  
 
   // Listen organization creation event
   if (eventType === "organization.created") {
+    console.log("Creating community...");
     // Resource: https://clerk.com/docs/reference/backend-api/tag/Organizations#operation/CreateOrganization
     // Show what evnt?.data sends from above resource
     const { id, name, slug, logo_url, image_url, created_by } =
       evnt?.data ?? {};
 
     try {
-      // @ts-ignore
-      await createCommunity(
+      const newCommunity = await createCommunity(
         // @ts-ignore
         id,
         name,
@@ -79,8 +81,17 @@ export const POST = async (request: Request) => {
         "org bio",
         created_by
       );
-
-      return NextResponse.json({ message: "User created" }, { status: 201 });
+    
+      if (newCommunity) {
+        console.log("Community created successfully:", newCommunity);
+        return NextResponse.json({ message: "User created" }, { status: 201 });
+      } else {
+        console.log("Failed to create community");
+        return NextResponse.json(
+          { message: "Internal Server Error" },
+          { status: 500 }
+        );
+      }
     } catch (err) {
       console.log(err);
       return NextResponse.json(

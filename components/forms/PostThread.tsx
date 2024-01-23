@@ -19,6 +19,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useOrganization } from "@clerk/nextjs";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
@@ -32,6 +33,8 @@ interface Props {
   }
 
 function PostThread({userId}:Props) {
+  const organization = useOrganization();
+    console.log("🚀 ~ PostThread ~ organization:", organization)
     const [file, setFile] = useState<File[]>([]);
     const { startUpload } = useUploadThing("media");
     const router = useRouter();
@@ -45,15 +48,20 @@ function PostThread({userId}:Props) {
 
         },
       });
+      
+      
       const onSubmit = async (values:z.infer<typeof ThreadValidation>) => {
-        await createThread({
+        
+          await createThread({
             text:values.thread,
             author:userId,
-            communityId:null,
+            communityId:organization?organization?.organization?.id:"",
             path:pathname
+          })
 
 
-        });
+        
+        
         router.push("/");
       }
 
