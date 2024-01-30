@@ -105,6 +105,4 @@ Open `http://localhost:3000` to view the project.
 - `user.actions.ts`
 - `utils.ts`
 
-## 🔗 Links
-Assets used in the project [are available here](#).
 
