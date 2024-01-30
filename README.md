@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Full Stack Threads Clone Project
 
-## Getting Started
+## Demo Web Sites
+Websites Link:[https://thread-neon.vercel.app/](https://thread-neon.vercel.app/)
 
-First, run the development server:
+<a href="https://mern-vite-new.onrender.com/" style="cursor: pointer;">
+    <img src="https://github.com/a1013457richar/vite_mern/blob/main/1.png" alt="MERN Estate">
+</a>
 
+
+## 📋 Table of Contents
+- 🤖 Introduction
+- ⚙️ Tech Stack
+- 🔋 Features
+- 🤸 Quick Start
+- 🕸️ Snippets
+- 🔗 Links
+- 🚀 More
+- 🚨 Tutorial
+
+
+## ⚙️ Tech Stack
+- **Next.js**
+- **MongoDB**
+- **Shadcn UI**
+- **TailwindCSS**
+- **Clerk**
+- **Webhooks**
+- **Serverless APIs**
+- **React Hook Form**
+- **Zod**
+- **TypeScript**
+
+## 🔋 Features
+- **Authentication**: Using Clerk for email, password, and social logins.
+- **Visually Appealing Home Page**: Showcasing latest threads.
+- **Create Thread Page**
+- **Commenting Feature**: Including nested commenting.
+- **User Search with Pagination**
+- **Activity Page**: Displaying notifications.
+- **Profile Page**
+- **Create and Invite to Communities**
+- **Community Member Management**
+- **Admin-Specific Community Threads**
+- **Community Search with Pagination**
+- **Community Profiles**
+- **Figma Design Implementation**
+- **Blazing-Fast Performance**
+- **Server Side Rendering**
+- **MongoDB with Complex Schemas**
+- **File Uploads with UploadThing**
+- **Real-Time Events Listening**
+- **Middleware, API Actions, and Authorization**
+- **Next.js Layout Route Groups**
+- **Data Validation with Zod**
+- **Form Management with React Hook Form**
+- And more, including code architecture and reusability
+
+## 🤸 Quick Start
+### Prerequisites
+- **Git**
+- **Node.js**
+- **npm**
+
+### Cloning the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/adrianhajdin/threads.git
+cd threads
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
+Install dependencies using npm:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Set Up Environment Variables
+Create a `.env` file in the project root and add:
+```
+MONGODB_URL=
+CLERK_SECRET_KEY=
+UPLOADTHING_SECRET=
+UPLOADTHING_APP_ID=
+NEXT_CLERK_WEBHOOK_SECRET=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+```
+Fill in the values from MongoDB, Clerk, and Uploadthing.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Running the Project
+```bash
+npm run dev
+```
+Open `http://localhost:3000` to view the project.
 
-## Learn More
+## 🕸️ Snippets
+- `clerk.route.ts`
+- `community.actions.ts`
+- `CommunityCard.tsx`
+- `constants.index.ts`
+- `globals.css`
+- `next.config.js`
+- `tailwind.config.js`
+- `thread.actions.ts`
+- `uploadthing.ts`
+- `user.actions.ts`
+- `utils.ts`
 
-To learn more about Next.js, take a look at the following resources:
+## 🔗 Links
+Assets used in the project [are available here](#).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
